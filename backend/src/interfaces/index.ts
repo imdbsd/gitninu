@@ -6,7 +6,18 @@ import {
     isInstanceOfIRepositorySuccess
 } from './Repository'
 
+import {
+    IIssuesError,
+    IIssuesFetch,
+    IIssuesFetchError,
+    IIssuesSuccess
+} from './Issues'
+
 export {
+    IIssuesError,
+    IIssuesFetch,
+    IIssuesFetchError,
+    IIssuesSuccess,
     IRepositoryError,
     IRepositoryFetch, 
     IRepositoryFetchError,
