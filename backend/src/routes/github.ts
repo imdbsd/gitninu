@@ -22,13 +22,19 @@ router.get('/repository/:owner', (req, res) => {
 router.get('/repository/:owner/:repo', async (req, res) => {
     try {
         const { owner, repo } = req.params
-        const repository = await github.repository(owner, repo)
-        if(repository) {
-            if(isInstanceOfIRepositorySuccess(repository)) {
-                res.status(200).json(repository.repository)
+        const repositoryRequest = await github.repository(owner, repo)
+        if(repositoryRequest) {
+            if(isInstanceOfIRepositorySuccess(repositoryRequest)) {
+                res.status(200).json({
+                    success: true,
+                    repository: repositoryRequest.repository
+                })
             }
             else {
-                res.status(400).json(repository.error)
+                res.status(400).json({
+                    success: false,
+                    error: repositoryRequest.error
+                })
             }
         }
     }
