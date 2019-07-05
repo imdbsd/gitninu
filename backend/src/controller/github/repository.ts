@@ -6,7 +6,7 @@ import {
 } from '../../interfaces'
 import { GITHUB_ACCESS_TOKEN, GITHUB_GRAPH_BASE_URL } from '../../utils/config'
 
-async function repository(owner: string, repo: string): Promise<IRepositorySuccess | IRepositoryError | any> {
+async function repository(owner: string, repo: string): Promise<IRepositorySuccess | IRepositoryError | undefined> {
     try {
         const response: AxiosResponse<IRepositoryFetch> = await axios({
             method: 'POST',
@@ -51,6 +51,11 @@ async function repository(owner: string, repo: string): Promise<IRepositorySucce
                             ) {
                                 totalCount
                             }
+                            mergedPullRequest: pullRequests(
+                                states: [MERGED]
+                            ) {
+                                totalCount
+                            }
                         }
                     }
                 `
@@ -73,6 +78,7 @@ async function repository(owner: string, repo: string): Promise<IRepositorySucce
                 return data
             }
         }
+        return undefined
         // console.log({response})
     }
     catch(e) {

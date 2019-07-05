@@ -2,12 +2,14 @@ import {
     IRepositoryError,
     IRepositorySuccess,
     IRepositoryFetch, 
-    IRepositoryFetchError
+    IRepositoryFetchError,
+    isInstanceOfIRepositorySuccess
 } from './Github'
 
 export {
     IRepositoryError,
     IRepositoryFetch, 
     IRepositoryFetchError,
-    IRepositorySuccess
+    IRepositorySuccess,
+    isInstanceOfIRepositorySuccess
 }

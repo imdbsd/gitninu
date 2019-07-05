@@ -24,7 +24,14 @@ export interface IRepositorySuccess {
         closedPullRequest: {
           totalCount: number
         }
+        mergedPullRequest: {
+          totalCount: number
+        }
     }
+}
+
+export function isInstanceOfIRepositorySuccess(object: any): object is IRepositorySuccess {
+  return object.repository ? true : false
 }
 
 export interface IRepositoryError {
@@ -42,6 +49,6 @@ export interface IRepositoryFetchError {
 }
 
 export interface IRepositoryFetch {
-    data: IRepositorySuccess | null,
+    data: IRepositorySuccess | undefined,
     errors?: [IRepositoryFetchError]
 }

@@ -1,5 +1,6 @@
 import { Router } from 'express'
-
+import { github } from '../controller'
+import { isInstanceOfIRepositorySuccess } from '../interfaces'
 const router: Router = Router()
 
 router.get('/', (req, res) => res.status(200).json({'message': 'hello fellas'}))
@@ -18,12 +19,23 @@ router.get('/repository/:owner', (req, res) => {
     })
 })
 
-router.get('/repository/:owner/:repo', (req, res) => {
-    console.log(req.params)
-    res.status(200).json({
-        success: true,
-        message: 'uwu'
-    })
+router.get('/repository/:owner/:repo', async (req, res) => {
+    try {
+        const { owner, repo } = req.params
+        const repository = await github.repository(owner, repo)
+        if(repository) {
+            if(isInstanceOfIRepositorySuccess(repository)) {
+                res.status(200).json(repository.repository)
+            }
+            else {
+                res.status(400).json(repository.error)
+            }
+        }
+    }
+    catch(e) {
+        console.log(e)
+        res.status(500).json({success: false})
+    }
 })
 
 
