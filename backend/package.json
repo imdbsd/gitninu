@@ -6,6 +6,11 @@
   "author": "imdbsd",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "build": "tsc -p .",
+    "start:dev": "ts-node-dev --respawn --transpileOnly ./src/index.ts",
+    "start": "node dist/index.js"
+  },
   "dependencies": {
     "axios": "^0.19.0",
     "dotenv": "^8.0.0",
