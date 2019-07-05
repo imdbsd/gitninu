@@ -4,7 +4,7 @@ import {
     IRepositoryFetch, 
     IRepositoryFetchError,
     isInstanceOfIRepositorySuccess
-} from './Github'
+} from './Repository'
 
 export {
     IRepositoryError,
