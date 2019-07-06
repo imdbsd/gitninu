@@ -1,3 +1,9 @@
+# import * from 'types.graphql'
+
 type Query {
     hello: String
+    getRepository(
+        owner: String
+        repo: String
+    ): RepositoryResponse
 }

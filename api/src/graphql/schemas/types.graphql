@@ -1,0 +1,26 @@
+type RepositoryResponse {
+    success: Boolean
+    repository: Repository
+}
+
+type Repository {
+    id: ID
+    name: String
+    owner: GithubUser
+    createdAt: String
+    totalIssues: CounterOnly
+    openIssues: CounterOnly
+    closedIssues: CounterOnly
+    totalPullRequest: CounterOnly
+    openPullRequest: CounterOnly
+    closedPullRequest: CounterOnly
+    mergedPullRequest: CounterOnly
+}
+
+type CounterOnly {
+    totalCount: Int
+}
+
+type GithubUser {
+    login: String
+}
