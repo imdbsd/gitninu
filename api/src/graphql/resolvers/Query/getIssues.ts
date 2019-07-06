@@ -9,9 +9,13 @@ import {
 export async function getIssues(obj: any, args: IGetIssuesArgs, context: any, info: any): Promise<null> {
     try {
         const { repo, owner, cursor } = args
+        let url = `http://localhost:3000/repository/${owner}/${repo}/issues`
+        if(cursor && cursor !== '') {
+            url += `?cursor=${cursor}`
+        }
         const response: AxiosResponse<IFetchIssuesResponse> = await axios({
             method: 'GET',
-            url: `http://localhost:3000/repository/${owner}/${repo}/issues`
+            url
         })
 
         if(response.status === 200) {
@@ -30,4 +34,4 @@ export async function getIssues(obj: any, args: IGetIssuesArgs, context: any, in
     }
 }
 
-getIssues({}, {owner: 'facebook', repo: 'react'}, {}, {})
+getIssues({}, {owner: 'facebook', repo: 'react', cursor: 'Y3Vyc29yOnYyOpK5MjAxOS0wNy0wNFQwOTo1MzoyMSswNzowMM4bqJyW'}, {}, {})
