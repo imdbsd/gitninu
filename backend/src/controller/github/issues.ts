@@ -7,7 +7,7 @@ import {
 } from '../../interfaces'
 import { GITHUB_ACCESS_TOKEN, GITHUB_GRAPH_BASE_URL } from '../../utils/config'
 
-async function issues(owner: string, repo: string, count: number, cursor? : string): Promise<IIssuesSuccess | IIssuesError | null> {
+async function issues(owner: string, repo: string, count: number, cursorAfter? : string, cursorBefore?: string): Promise<IIssuesSuccess | IIssuesError | null> {
     try {
         const response: AxiosResponse<IIssuesFetch> = await axios({
             method: 'POST',
@@ -21,7 +21,8 @@ async function issues(owner: string, repo: string, count: number, cursor? : stri
                     query {
                         repository(owner: "${owner}", name: "${repo}") {
                             issues(
-                                ${cursor && cursor !== '' ? 'after: ' + cursor : ''}
+                                ${cursorAfter && cursorAfter !== '' ? 'after: ' + cursorAfter : ''}
+                                ${cursorBefore && cursorBefore !== '' ? 'before: ' + cursorBefore : ''}
                                 first: ${count}
                                 orderBy: {
                                     field: CREATED_AT
