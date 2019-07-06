@@ -11,7 +11,7 @@ type IssuesResponse {
 }
 
 type Issues {
-    totalCount: Number
+    totalCount: Int
     pageInfo: PageInfoStatus
     nodes: [IssuesNode]
 }
@@ -26,7 +26,7 @@ type PageInfoStatus {
 type IssuesNode {
     id: String,
     title: String,
-    number: Number,
+    number: Int,
     createdAt: String,
     author: GithubUser
 }
