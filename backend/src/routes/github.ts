@@ -2,7 +2,8 @@ import { Router } from 'express'
 import { github } from '../controller'
 import { 
     isInstanceOfIRepositorySuccess,
-    isInstanceOfIIssuesSuccess
+    isInstanceOfIIssuesSuccess,
+    isInstanceOfIIssueSuccess
 } from '../interfaces'
 const router: Router = Router()
 
@@ -51,12 +52,38 @@ router.get('/repository/:owner/:repo/issues', async (req, res) => {
     try {
         const { owner, repo } = req.params
         const { cursor } = req.query
-        const repoIssueRequest = await github.issues(owner, repo, 10, cursor)
-        if(repoIssueRequest) {
-            if(isInstanceOfIIssuesSuccess(repoIssueRequest)) {
+        const repoIssuesRequest = await github.issues(owner, repo, 10, cursor)
+        if(repoIssuesRequest) {
+            if(isInstanceOfIIssuesSuccess(repoIssuesRequest)) {
                 res.status(200).json({
                     success: true,
-                    issues: repoIssueRequest.issues
+                    issues: repoIssuesRequest.issues
+                })
+            }
+            else {
+                res.status(400).json({
+                    success: false,
+                    error: repoIssuesRequest.error
+                })
+            }
+        }
+    }
+    catch(e) {
+        console.log(e)
+        res.status(500).json({success: false})
+    }
+})
+
+router.get('/repository/:owner/:repo/issue/:number', async (req, res) => {
+    try {
+        const { owner, repo, number } = req.params
+        const { cursor } = req.query
+        const repoIssueRequest = await github.issue(owner, repo, number, cursor)
+        if(repoIssueRequest) {
+            if(isInstanceOfIIssueSuccess(repoIssueRequest)) {
+                res.status(200).json({
+                    success: true,
+                    issue: repoIssueRequest.issue
                 })
             }
             else {
@@ -72,7 +99,6 @@ router.get('/repository/:owner/:repo/issues', async (req, res) => {
         res.status(500).json({success: false})
     }
 })
-
 
 
 export default router

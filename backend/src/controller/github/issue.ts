@@ -23,6 +23,8 @@ async function issue(owner: string, repo: string, issueNumber: number, cursor?: 
                                 title
                                 createdAt
                                 state
+                                body
+                                bodyHTML
                                 author {
                                     login
                                 }

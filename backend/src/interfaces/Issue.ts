@@ -3,6 +3,8 @@ export interface IIssueSuccess {
         title: string
         createdAt: string
         state: string
+        body: string
+        bodyHTML: string
         author: {
             login: string
         },
