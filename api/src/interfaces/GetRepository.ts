@@ -40,6 +40,9 @@ export interface IFetchRepositoryResponse {
         },
         mergedPullRequest: {
             totalCount: number
+        },
+        issues: {
+            
         }
     }
 }

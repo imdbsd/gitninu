@@ -4,8 +4,15 @@ import {
     IGetRepositoryResp
 } from './GetRepository'
 
+import {
+    IGetIssuesArgs,
+    IFetchIssuesResponse
+} from './GetIssues'
+
 export {
     IGetRepositoryArgs,
     IGetRepositoryResp,
-    IFetchRepositoryResponse
+    IFetchIssuesResponse,
+    IFetchRepositoryResponse,
+    IGetIssuesArgs
 }

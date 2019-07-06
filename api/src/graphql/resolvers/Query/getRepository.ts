@@ -14,14 +14,14 @@ export async function getRepository(obj: any, args: IGetRepositoryArgs, context:
         })
 
         if(response.status === 200) {
-            console.log(response.data)
+            // console.log(response.data)
             return response.data
         }
 
         return null
     }
     catch(e) {
-        console.log(e.response.data)
+        // console.log(e.response.data)
         return e.response.data
     }
 }

@@ -4,6 +4,33 @@ type RepositoryResponse {
     error: GraphError
 }
 
+type IssuesResponse {
+    success: Boolean
+    issues: Issues
+    error: GraphError
+}
+
+type Issues {
+    totalCount: Number
+    pageInfo: PageInfoStatus
+    nodes: [IssuesNode]
+}
+
+type PageInfoStatus {
+    startCursor: String
+    endCursor: String
+    hasNextPage: Boolean
+    hasPreviousPage: Boolean
+}
+
+type IssuesNode {
+    id: String,
+    title: String,
+    number: Number,
+    createdAt: String,
+    author: GithubUser
+}
+
 type Repository {
     id: ID
     name: String

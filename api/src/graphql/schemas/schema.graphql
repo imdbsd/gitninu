@@ -6,4 +6,9 @@ type Query {
         owner: String!
         repo: String!
     ): RepositoryResponse
+    getIssues(
+        owner: String!
+        repo: String!
+        cursor: String
+    ): IssuesResponse
 }
