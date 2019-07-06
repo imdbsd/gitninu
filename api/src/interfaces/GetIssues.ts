@@ -4,6 +4,32 @@ export interface IGetIssuesArgs extends IGetRepositoryArgs {
     cursor?: string
 }
 
+export interface IGetIssuesResp {
+  success: boolean,
+  issues?: {
+    totalCount: number,
+    pageInfo: {
+      startCursor: string
+      endCursor: string
+      hasNextPage: boolean
+      hasPreviousPage: boolean
+    },
+    nodes: [{
+      id: string,
+      title: string,
+      number: number,
+      createdAt: string,
+      author: {
+        login: string
+      }
+    }]
+  }
+  error?: {
+    type: string,
+    message: string
+  }
+}
+
 export interface IFetchIssuesResponse {
     success: boolean,
     issues?: {
