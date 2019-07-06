@@ -3,7 +3,7 @@
 type Query {
     hello: String
     getRepository(
-        owner: String
-        repo: String
+        owner: String!
+        repo: String!
     ): RepositoryResponse
 }

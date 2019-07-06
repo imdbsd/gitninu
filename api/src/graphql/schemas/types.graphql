@@ -1,6 +1,7 @@
 type RepositoryResponse {
     success: Boolean
     repository: Repository
+    error: GraphError
 }
 
 type Repository {
@@ -23,4 +24,9 @@ type CounterOnly {
 
 type GithubUser {
     login: String
+}
+
+type GraphError {
+    type: String
+    message: String
 }
