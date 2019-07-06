@@ -14,7 +14,18 @@ import {
     isInstanceOfIIssuesSuccess
 } from './Issues'
 
+import {
+    IIssueError,
+    IIssueFetchError,
+    IIssueSuccess,
+    IIssueFetch
+} from './Issue'
+
 export {
+    IIssueError,
+    IIssueFetchError,
+    IIssueSuccess,
+    IIssueFetch,
     IIssuesError,
     IIssuesFetch,
     IIssuesFetchError,
