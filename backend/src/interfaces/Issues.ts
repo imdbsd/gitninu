@@ -15,6 +15,7 @@ export interface IIssuesSuccess {
         nodes: [
             {
                 id: string,
+                number: number,
                 title: string,
                 createdAt: string,
                 author: {
@@ -22,7 +23,7 @@ export interface IIssuesSuccess {
                 }
             }
         ]
-    }
+    } | null
 }
 
 export interface IIssuesError {
@@ -41,11 +42,11 @@ export interface IIssuesFetchError {
 
 export interface IIssuesFetch {
     data: {
-        repository: null
-    } | {
-        repository: {
-            issues: IIssuesSuccess
-        }
+        repository: IIssuesSuccess
     },
     errors?: [IIssuesFetchError]
+}
+
+export function isInstanceOfIIssuesSuccess(object: any): object is IIssuesSuccess {
+    return object.issues ? true : false
 }

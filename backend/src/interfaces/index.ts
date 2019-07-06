@@ -10,7 +10,8 @@ import {
     IIssuesError,
     IIssuesFetch,
     IIssuesFetchError,
-    IIssuesSuccess
+    IIssuesSuccess,
+    isInstanceOfIIssuesSuccess
 } from './Issues'
 
 export {
@@ -22,5 +23,6 @@ export {
     IRepositoryFetch, 
     IRepositoryFetchError,
     IRepositorySuccess,
-    isInstanceOfIRepositorySuccess
+    isInstanceOfIRepositorySuccess,
+    isInstanceOfIIssuesSuccess
 }

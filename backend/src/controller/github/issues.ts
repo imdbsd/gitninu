@@ -3,7 +3,7 @@ import {
     IIssuesSuccess,
     IIssuesError,
     IIssuesFetch,
-    isInstanceOfIIssuesSuccess
+    // isInstanceOfIIssuesSuccess
 } from '../../interfaces'
 import { GITHUB_ACCESS_TOKEN, GITHUB_GRAPH_BASE_URL } from '../../utils/config'
 
@@ -77,12 +77,12 @@ async function issues(owner: string, repo: string, count: number, cursor? : stri
     }
 }
 
-issues('facebook', 'react', 10, 'Y3Vyc29yOnYyOpK5MjAxOS0wNy0wNFQwNjoyMjowOCswNzowMM4bp_Y9')
-.then(response => {
-    if(response && isInstanceOfIIssuesSuccess(response)) {
-        console.log(response.issues)
-    }
-})
+// issues('facebook', 'react', 10, 'Y3Vyc29yOnYyOpK5MjAxOS0wNy0wNFQwNjoyMjowOCswNzowMM4bp_Y9')
+// .then(response => {
+//     if(response && isInstanceOfIIssuesSuccess(response)) {
+//         console.log(response.issues)
+//     }
+// })
 
 export {
     issues
