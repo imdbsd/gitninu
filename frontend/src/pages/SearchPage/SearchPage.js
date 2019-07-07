@@ -4,7 +4,7 @@ import { SearchForm, ButtonSearchForm, LandingComponent } from '../../components
 export default class SearchPage extends Component {
     state = {
         openForm: false,
-        searchResult: [], 
+        searchResult: {}, 
         errorFind: null
     }
 
@@ -13,7 +13,17 @@ export default class SearchPage extends Component {
     }
 
     handleSearchResultChange = (result) => {
-        if(result.length > 0) {}
+        if(Object.keys(result).length > 0) {
+            this.setState({
+                searchResult: result, errorFind: null, openForm: false
+            })
+        }
+        else {
+            this.setState({
+                searchResult: {},
+                errorFind: true
+            })
+        }
     }
 
     render() {
@@ -26,11 +36,12 @@ export default class SearchPage extends Component {
                 <SearchForm 
                     isOpen={this.state.openForm}
                     handleOpenSearchForm={this.handleOpenSearchForm}
+                    handleSearchResultChange={this.handleSearchResultChange}
                 />
-                {this.state.searchResult.length === 0 && (
+                {Object.keys(this.state.searchResult).length === 0 && (
                     <LandingComponent />
                 )}
-                {this.state.searchResult.length > 0 && (
+                {Object.keys(this.state.searchResult).length > 0 && (
                     <div></div>
                 )}
             </Fragment>

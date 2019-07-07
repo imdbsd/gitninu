@@ -31,6 +31,7 @@ export default class SearchForm extends Component {
           this.setState({
               errorMessage: ''
           })
+          this.props.handleSearchResultChange(response.repository)
       }
       else {
           this.setState({
