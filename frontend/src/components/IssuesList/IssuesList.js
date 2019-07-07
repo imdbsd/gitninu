@@ -9,7 +9,8 @@ class IssuesList extends Component {
     state = {
         issues: [],
         totalIssues: 0,
-        pageInfo: {}
+        pageInfo: {},
+        history: []
     }
     async componentDidMount() {
         console.log('load issue')
@@ -52,6 +53,7 @@ class IssuesList extends Component {
                     <Pagination 
                         pageInfo={this.state.pageInfo}
                         totalElement={this.state.totalIssues}
+                        page={this.state.history.length + 1}
                     />
                 )}
             </section>
