@@ -22,8 +22,15 @@ async function getRepository(owner, repo) {
                             name
                             owner {
                               login
+                              avatarUrl
                             }
                             totalIssues {
+                              totalCount
+                            }
+                            closedIssues {
+                              totalCount
+                            }
+                            openIssues {
                               totalCount
                             }
                           }
