@@ -73,14 +73,16 @@
   font-size: 24px;
 }
 
-.issue-card__wrapper {
+.issue-card__wrapper,
+.comment-card__wrapper {
   max-height: 200px;
   overflow-y: auto;
   margin-left: -1rem;
   margin-right: -1rem;
 }
 
-.issue-card {
+.issue-card,
+.comment-card {
   padding: 10px;
   margin: 0 0 5px;
   border: 1px solid #cecece;
@@ -130,4 +132,23 @@
 
 .issue__body {
   margin: 10px auto;
+}
+
+.comment-card {
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+.comment-card__header {
+  background-color: #cecece;
+  color: #fff;
+  padding: 10px;
+}
+
+.comment-card__body {
+  padding: 10px;
+}
+
+.comment-card__wrapper {
+  max-height: unset;
 }

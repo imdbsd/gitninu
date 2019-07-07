@@ -1,5 +1,8 @@
-import React, { Component } from 'react'
-import { IssueDisplay } from '../../components'
+import React, { Component, Fragment } from 'react'
+import { 
+    IssueDisplay,
+    CommentList
+} from '../../components'
 import { getIssue } from '../../requests'
 import { FacebookLoading } from '../../svgIcons'
 
@@ -36,12 +39,17 @@ export default class CommentsPage extends Component {
                     </div>
                 )}
                 {!this.state.loadIssue && (
-                    <IssueDisplay 
-                        owner={owner}
-                        repo={repo}
-                        number={number}
-                        issue={this.state.issue}
-                    />
+                    <Fragment>
+                        <IssueDisplay 
+                            owner={owner}
+                            repo={repo}
+                            number={number}
+                            issue={this.state.issue}
+                        />
+                        <CommentList 
+                            comments={this.state.issue.comments}
+                        />
+                    </Fragment>
                 )}
             </div>
         )
