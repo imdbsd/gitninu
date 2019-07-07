@@ -7,8 +7,48 @@ import {
 } from '../../interfaces'
 import { GITHUB_ACCESS_TOKEN, GITHUB_GRAPH_BASE_URL } from '../../utils/config'
 
-async function issues(owner: string, repo: string, count: number, cursorAfter? : string, cursorBefore?: string): Promise<IIssuesSuccess | IIssuesError | null> {
+async function issues(owner: string, repo: string, count: number, cursor? : string, direction?: string): Promise<IIssuesSuccess | IIssuesError | null> {
     try {
+        let cursorDirection = 'first'
+        if(direction) {
+            if(direction === 'before') {
+                cursorDirection = 'last'
+            }
+        }
+        console.log(`
+        query {
+            repository(owner: "${owner}", name: "${repo}") {
+                issues(
+                    ${cursor && cursor !== '' ? direction + ': ' + cursor : ''}
+                    ${cursorDirection}: ${count}
+                    orderBy: {
+                        field: CREATED_AT
+                        direction: DESC
+                    }
+                ) {
+                    totalCount
+                    edges {
+                        cursor
+                    }
+                    pageInfo {
+                        startCursor
+                        endCursor
+                        hasNextPage
+                        hasPreviousPage
+                    }
+                    nodes {
+                        id
+                        title
+                        number
+                        createdAt
+                            author {
+                            login
+                        }
+                    }
+                }
+            }
+        }
+    `   )
         const response: AxiosResponse<IIssuesFetch> = await axios({
             method: 'POST',
             url: GITHUB_GRAPH_BASE_URL,
@@ -21,9 +61,8 @@ async function issues(owner: string, repo: string, count: number, cursorAfter? :
                     query {
                         repository(owner: "${owner}", name: "${repo}") {
                             issues(
-                                ${cursorAfter && cursorAfter !== '' ? 'after: ' + cursorAfter : ''}
-                                ${cursorBefore && cursorBefore !== '' ? 'before: ' + cursorBefore : ''}
-                                first: ${count}
+                                ${cursor && cursor !== '' ? direction + ': ' + cursor : ''}
+                                ${cursorDirection}: ${count}
                                 orderBy: {
                                     field: CREATED_AT
                                     direction: DESC
