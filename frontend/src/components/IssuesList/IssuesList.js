@@ -82,6 +82,8 @@ class IssuesList extends Component {
                                 <IssueCard 
                                     key={issue.id}
                                     issue={issue}
+                                    owner={this.props.owner}
+                                    repo={this.props.repo}
                                 />
                             ))}
                             
