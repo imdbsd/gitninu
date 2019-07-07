@@ -6,6 +6,7 @@ import { SearchRepoResult } from './SearchRepoResult'
 import { LandingComponent } from './LandingComponent'
 import { RepositoryInfo } from './RepositoryInfo'
 import { IssuesList } from './IssuesList'
+import { IssueCard } from './IssueCard'
 
 export {
     App,
@@ -15,5 +16,6 @@ export {
     RepositoryInfo,
     SearchRepoResult,
     LandingComponent,
-    IssuesList
+    IssuesList,
+    IssueCard
 }

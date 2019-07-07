@@ -71,3 +71,38 @@
   font-weight: bold;
   font-size: 24px;
 }
+
+.issue-card__wrapper {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+.issue-card {
+  padding: 10px;
+  margin: 0 0 5px;
+  border: 1px solid #cecece;
+  border-radius: 5px;
+  box-shadow: 1px 3px 7px #cecece;
+  position: relative;
+}
+
+.issue-card__title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.issue-card__info {
+  font-size: 12px;
+  color: #777272;
+}
+
+.issue-card__state {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}

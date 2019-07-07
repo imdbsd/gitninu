@@ -1,16 +1,22 @@
 import React, { Component, Fragment } from 'react'
-import { SearchForm, ButtonSearchForm, LandingComponent, RepositoryInfo } from '../../components'
+import { 
+    SearchForm, 
+    ButtonSearchForm, 
+    LandingComponent, 
+    RepositoryInfo,
+    IssuesList
+} from '../../components'
 
 export default class SearchPage extends Component {
     state = {
         openForm: false,
         searchResult: {
-            id: "MDEwOlJlcG9zaXRvcnkxMDI3MDI1MA==",
-            name: "react",
-            openIssues: {totalCount: 572},
-            owner: {login: "facebook", avatarUrl: "https://avatars3.githubusercontent.com/u/69631?v=4"},
-            totalIssues: {totalCount: 7646},
-            closedIssues: {totalCount: 7074}
+            // id: "MDEwOlJlcG9zaXRvcnkxMDI3MDI1MA==",
+            // name: "react",
+            // openIssues: {totalCount: 572},
+            // owner: {login: "facebook", avatarUrl: "https://avatars3.githubusercontent.com/u/69631?v=4"},
+            // totalIssues: {totalCount: 7646},
+            // closedIssues: {totalCount: 7074}
         }, 
         errorFind: null
     }
@@ -52,15 +58,10 @@ export default class SearchPage extends Component {
                 {Object.keys(this.state.searchResult).length > 0 && (
                     <Fragment>
                         <RepositoryInfo info={this.state.searchResult}/>
-                        <section>
-                            <div>
-                                <select>
-                                    <option>all</option>
-                                    <option>closed</option>
-                                    <option>open</option>
-                                </select>
-                            </div>
-                        </section>
+                        <IssuesList 
+                            owner={this.state.searchResult.owner.login}
+                            repo={this.state.searchResult.name}
+                        />
                     </Fragment>
                 )}
             </Fragment>
