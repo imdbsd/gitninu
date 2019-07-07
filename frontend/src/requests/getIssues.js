@@ -1,4 +1,4 @@
-async function getIssues(owner, repo, cursor, direction) {
+async function getIssues(owner, repo, cursor, direction, state) {
     try {
         const request = await fetch('http://localhost:4000/graphql', {
             method: 'POST',
@@ -13,6 +13,7 @@ async function getIssues(owner, repo, cursor, direction) {
                           repo: "${repo}"
                           ${cursor && cursor !== '' ? 'cursor: "' + cursor + '"': ''}
                           ${direction && direction !== '' ? 'direction: ' + direction : ''}
+                          ${state && state !== 'all' ? 'state: ' + state : ''}
                         ) {
                           success
                           error {
