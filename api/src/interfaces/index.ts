@@ -11,7 +11,8 @@ import {
 } from './GetIssues'
 
 import {
-    IGetIssueArgs
+    IGetIssueArgs,
+    IGetIssueResp
 } from './GetIssue'
 
 export {
@@ -21,5 +22,6 @@ export {
     IFetchRepositoryResponse,
     IGetIssuesArgs,
     IGetIssuesResp,
-    IGetIssueArgs
+    IGetIssueArgs,
+    IGetIssueResp
 }
