@@ -33,6 +33,23 @@ export default class SearchPage extends Component {
         }
     }
 
+    componentWillUnmount() {
+        if (typeof(Storage) !== "undefined") {
+            localStorage.setItem('searchPageResultHistory', JSON.stringify(this.state.searchResult))
+        } 
+    }
+
+    componentDidMount() {
+        if (typeof(Storage) !== "undefined") {
+            if(localStorage.getItem('searchPageResultHistory') !== null) {
+                const searchPageResultHistory = localStorage.getItem('searchPageResultHistory')
+                this.setState({
+                    searchResult: JSON.parse(searchPageResultHistory)
+                })
+            }
+        } 
+    }
+
     render() {
         return (
             <Fragment>
