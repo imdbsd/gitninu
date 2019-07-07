@@ -8,10 +8,10 @@ import {
 
 export async function getIssues(obj: any, args: IGetIssuesArgs, context: any, info: any): Promise<IGetIssuesResp | boolean> {
     try {
-        const { repo, owner, cursor } = args
+        const { repo, owner, cursor, direction = 'after' } = args
         let url = `http://localhost:3000/repository/${owner}/${repo}/issues`
         if(cursor && cursor !== '') {
-            url += `?cursor=${cursor}`
+            url += `?cursor=${cursor}&direction=${direction}`
         }
         const response: AxiosResponse<IFetchIssuesResponse> = await axios({
             method: 'GET',
@@ -30,4 +30,4 @@ export async function getIssues(obj: any, args: IGetIssuesArgs, context: any, in
     }
 }
 
-getIssues({}, {owner: 'facebook', repo: 'react', cursor: 'Y3Vyc29yOnYyOpK5MjAxOS0wNy0wNFQwOTo1MzoyMSswNzowMM4bqJyW'}, {}, {})
+// getIssues({}, {owner: 'facebook', repo: 'react'}, {}, {})

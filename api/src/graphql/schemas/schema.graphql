@@ -10,5 +10,6 @@ type Query {
         owner: String!
         repo: String!
         cursor: String
+        direction: CursorDirection
     ): IssuesResponse
 }
