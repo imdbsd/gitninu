@@ -20,6 +20,8 @@ async function getIssue(owner, repo, number, cursor, direction) {
                           issue {
                             id
                             title
+                            createdAt
+                            state
                             body
                             bodyHTML
                             author {

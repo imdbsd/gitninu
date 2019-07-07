@@ -1,8 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { 
     IssueCard,
-    Pagination,
-    LandingComponent
+    Pagination
 } from '../../components'
 import { getIssues } from '../../requests'
 

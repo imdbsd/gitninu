@@ -122,3 +122,12 @@
 .pagination__nav-wrapper button {
   flex: 1;
 }
+
+.issue__title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.issue__body {
+  margin: 10px auto;
+}
