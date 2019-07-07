@@ -8,7 +8,7 @@ import {
 async function getIssues(obj: any, args: IGetIssuesArgs, context: any, info: any): Promise<IGetIssuesResp | boolean> {
     try {
         const { repo, owner, cursor, direction = 'after', state } = args
-        let url = `http://localhost:3000/repository/${owner}/${repo}/issues?`
+        let url = `http://gitninu-be:3000/repository/${owner}/${repo}/issues?`
         if(cursor && cursor !== '') {
             url += `cursor=${cursor}&direction=${direction}&`
         }

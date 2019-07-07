@@ -10,7 +10,7 @@ export async function getRepository(obj: any, args: IGetRepositoryArgs, context:
         const { repo, owner } = args
         const response: AxiosResponse<IFetchRepositoryResponse> = await axios({
             method: 'GET',
-            url: `http://localhost:3000/repository/${owner}/${repo}`
+            url: `http://gitninu-be:3000/repository/${owner}/${repo}`
         })
 
         if(response.status === 200) {

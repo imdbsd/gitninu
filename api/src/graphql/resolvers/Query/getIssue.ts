@@ -4,7 +4,7 @@ import { IGetIssueArgs, IGetIssueResp } from '../../../interfaces'
 async function getIssue(obj: any, args: IGetIssueArgs, context: any, info: any): Promise<IGetIssueResp | boolean> {
     try {
         const { owner, repo, number, commentCursor, commentCursorDirection } = args
-        let url = `http://localhost:3000/repository/${owner}/${repo}/issue/${number}`
+        let url = `http://gitninu-be:3000/repository/${owner}/${repo}/issue/${number}`
         if(commentCursor && commentCursor !== '') {
             url += `?cursor=${commentCursor}&direction=${commentCursorDirection}`
         }

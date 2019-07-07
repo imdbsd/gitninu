@@ -4,8 +4,8 @@ import { FacebookLoading } from "../../svgIcons";
 
 export default class SearchForm extends Component {
   state = {
-    name: "facebook",
-    repo: "react",
+    name: '',
+    repo: '',
     isSubmit: false,
     errorMessage: ''
   };

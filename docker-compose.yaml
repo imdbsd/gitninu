@@ -1,0 +1,16 @@
+version: '3'
+
+services: 
+  gitninu-be: 
+    build: ./backend/
+    container_name:  gitninu-be
+  gitninu-api:
+    build: ./api/
+    container_name: gitninu-api
+    ports:
+      - 4000:4000
+  gitninu-fe: 
+    build: ./frontend/
+    container_name: gitninu-fe
+    ports:
+      - 80:80
