@@ -50,7 +50,18 @@ export default class SearchPage extends Component {
                     <LandingComponent />
                 )}
                 {Object.keys(this.state.searchResult).length > 0 && (
-                    <RepositoryInfo info={this.state.searchResult}/>
+                    <Fragment>
+                        <RepositoryInfo info={this.state.searchResult}/>
+                        <section>
+                            <div>
+                                <select>
+                                    <option>all</option>
+                                    <option>closed</option>
+                                    <option>open</option>
+                                </select>
+                            </div>
+                        </section>
+                    </Fragment>
                 )}
             </Fragment>
         )

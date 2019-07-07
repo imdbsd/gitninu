@@ -5,6 +5,7 @@ import { ButtonSearchForm } from './ButtonSearchForm'
 import { SearchRepoResult } from './SearchRepoResult'
 import { LandingComponent } from './LandingComponent'
 import { RepositoryInfo } from './RepositoryInfo'
+import { IssuesList } from './IssuesList'
 
 export {
     App,
@@ -13,5 +14,6 @@ export {
     ButtonSearchForm,
     RepositoryInfo,
     SearchRepoResult,
-    LandingComponent
+    LandingComponent,
+    IssuesList
 }
