@@ -6,8 +6,14 @@ import {
 } from '../../interfaces'
 import { GITHUB_ACCESS_TOKEN, GITHUB_GRAPH_BASE_URL } from '../../utils/config'
 
-async function issue(owner: string, repo: string, issueNumber: number, cursor?: string): Promise< IIssueError | IIssueSuccess | null> {
+async function issue(owner: string, repo: string, issueNumber: number, cursor?: string, direction?: string): Promise< IIssueError | IIssueSuccess | null> {
     try {
+        let cursorDirection = 'first'
+        if(direction) {
+            if(direction === 'before') {
+                cursorDirection = 'last'
+            }
+        }
         const response: AxiosResponse<IIssueFetch> = await axios({
             method: 'POST',
             url: GITHUB_GRAPH_BASE_URL,
@@ -19,7 +25,10 @@ async function issue(owner: string, repo: string, issueNumber: number, cursor?: 
                 query: `
                     query {
                         repository(owner: "${owner}", name: "${repo}") {
-                            issue(number: ${issueNumber}) {
+                            issue(
+                                number: ${issueNumber}
+                            ) {
+                                id
                                 title
                                 createdAt
                                 state
@@ -29,8 +38,8 @@ async function issue(owner: string, repo: string, issueNumber: number, cursor?: 
                                     login
                                 }
                                 comments(
-                                    ${cursor && cursor !== '' ? 'after: ' + cursor : ''}
-                                    first: 10
+                                    ${cursor && cursor !== '' ? direction + ': "' + cursor + '"' : ''}
+                                    ${cursorDirection}: 10
                                 ) {
                                     totalCount
                                     pageInfo {
