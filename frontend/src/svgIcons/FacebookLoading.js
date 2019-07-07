@@ -3,8 +3,8 @@ import React from 'react'
 function FacebookLoading(props) {
     return (
         <svg
-            width="200px"
-            height="200px"
+            width="100px"
+            height="100px"
             viewBox="0 0 100 100"
             preserveAspectRatio="xMidYMid"
             className="lds-facebook"

@@ -20,6 +20,7 @@
   border-color: #cecece;
   transition: .5s ease;
   z-index: 9;
+  text-align: center;
 }
 
 .form-search--hide {

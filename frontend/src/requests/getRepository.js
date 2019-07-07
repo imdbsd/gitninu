@@ -34,6 +34,7 @@ async function getRepository(owner, repo) {
         })
         const response = await request.json()
         console.log(response)
+        return response.data.getRepository
     }
     catch(e) {
         console.log(e)

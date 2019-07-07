@@ -12,6 +12,10 @@ export default class SearchPage extends Component {
         this.setState({openForm: state})
     }
 
+    handleSearchResultChange = (result) => {
+        if(result.length > 0) {}
+    }
+
     render() {
         return (
             <Fragment>
@@ -25,6 +29,9 @@ export default class SearchPage extends Component {
                 />
                 {this.state.searchResult.length === 0 && (
                     <LandingComponent />
+                )}
+                {this.state.searchResult.length > 0 && (
+                    <div></div>
                 )}
             </Fragment>
         )
