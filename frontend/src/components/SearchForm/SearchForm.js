@@ -13,9 +13,14 @@ export default class SearchForm extends Component {
             [name]: value
         })
     }
-    onSubmit = e => {
+    onSubmit = async e => {
         e.preventDefault()
-        getRepository(this.state.name, this.state.repo)
+        try {
+           const response =  await getRepository(this.state.name, this.state.repo)
+        }
+        catch(e) {
+            console.log(e)
+        }
     }
     render() {
         return (

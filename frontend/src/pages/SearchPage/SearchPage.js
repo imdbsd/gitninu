@@ -3,7 +3,8 @@ import { SearchForm, ButtonSearchForm } from '../../components'
 
 export default class SearchPage extends Component {
     state = {
-        openForm: false
+        openForm: false,
+        searchResult: []
     }
 
     handleOpenSearchForm = (state) => {
@@ -22,7 +23,8 @@ export default class SearchPage extends Component {
                     handleOpenSearchForm={this.handleOpenSearchForm}
                 />
                 <div className="column">
-                ¯\_(ツ)_/¯
+                <p>¯\_(ツ)_/¯</p>
+                <p>Guess what? <br/>You can use that button on the button to search.</p>
                 </div>
             </Fragment>
         )
