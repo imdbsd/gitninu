@@ -24,7 +24,7 @@ type PageInfoStatus {
 }
 
 type IssuesNode {
-    id: String,
+    id: ID,
     title: String,
     number: Int,
     createdAt: String,
@@ -61,4 +61,36 @@ type GraphError {
 enum CursorDirection {
     before
     after
+}
+
+type IssueResponse {
+    success: Boolean
+    issue: Issue
+    error: GraphError
+}
+
+type Issue {
+    id: ID
+    title: String
+    createdAt: String
+    state: String
+    body: String
+    bodyHTML: String
+    author: GithubUser
+    comments
+}
+
+type Comments {
+    totalCount: Int
+    pageInfo: PageInfoStatus
+    nodes: 
+}
+
+type Comment {
+    id: ID
+    title: String
+    createdAt: String
+    author: GithubUser
+    body: String
+    bodyHTML: String
 }
