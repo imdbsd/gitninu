@@ -1,6 +1,17 @@
 import React, { Component, Fragment } from 'react'
 
 export default class SearchForm extends Component {
+    state = {
+        name: '',
+        repo: ''
+    }
+    onChange = (e) => {
+        e.preventDefault()
+        const { name, value } = e.target
+        this.setState({
+            [name]: value
+        })
+    }
     render() {
         return (
             <Fragment>
@@ -17,12 +28,26 @@ export default class SearchForm extends Component {
                 <form className={`form-search ${!this.props.isOpen ? 'form-search--hide' : ''}`}>
                     <div className="field">
                         <div className="control">
-                            <input className="input" type="text" placeholder="Username / Organization" />
+                            <input 
+                                className="input" 
+                                type="text" 
+                                placeholder="Username / Organization" 
+                                name="name"
+                                value={this.state.name}
+                                onChange={this.onChange}
+                            />
                         </div>
                     </div>
                     <div className="field">
                         <div className="control">
-                            <input className="input" type="text" placeholder="Repository" />
+                            <input 
+                                className="input" 
+                                type="text" 
+                                placeholder="Repository" 
+                                name="repo"
+                                value={this.state.repo}
+                                onChange={this.onChange}
+                            />
                         </div>
                     </div>
                     <div className="control">
