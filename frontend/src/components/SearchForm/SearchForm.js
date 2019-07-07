@@ -12,7 +12,7 @@ export default class SearchForm extends Component {
                         bottom: 0,
                         right: 0
                     }}
-                        onClick={() => alert('click')}></div>
+                        onClick={() => this.props.handleOpenSearchForm(false)}></div>
                 )}
                 <form className={`form-search ${!this.props.isOpen ? 'form-search--hide' : ''}`}>
                     <div className="field">

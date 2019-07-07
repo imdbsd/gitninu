@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { SearchForm } from '../../components'
+import { SearchForm, ButtonSearchForm } from '../../components'
 
 export default class SearchPage extends Component {
     state = {
@@ -13,10 +13,14 @@ export default class SearchPage extends Component {
     render() {
         return (
             <Fragment>
-                <button className="button button-search is-primary" onClick={() => this.handleOpenSearchForm(true)}>
-                    <i className="fa fa-search" aria-hidden="true"></i>
-                </button>
-                <SearchForm isOpen={this.state.openForm}/>
+                <ButtonSearchForm 
+                    isShow={!this.state.openForm}
+                    handleOpenSearchForm={this.handleOpenSearchForm}
+                />
+                <SearchForm 
+                    isOpen={this.state.openForm}
+                    handleOpenSearchForm={this.handleOpenSearchForm}
+                />
             </Fragment>
         )
     }
