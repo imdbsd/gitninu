@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Navbar } from '../Navbar'
-import { SearchForm } from '../SearchForm'
+import { SearchPage } from '../../pages'
 
 export default class App extends Component {
     render() {
@@ -8,7 +8,7 @@ export default class App extends Component {
             <Fragment>
                 <Navbar />
                 <section className="section">
-                    <SearchForm />
+                    <SearchPage />
                 </section>
             </Fragment>
         )
