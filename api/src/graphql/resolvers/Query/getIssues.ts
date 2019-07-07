@@ -6,7 +6,7 @@ import {
     IGetIssuesArgs
 } from '../../../interfaces'
 
-export async function getIssues(obj: any, args: IGetIssuesArgs, context: any, info: any): Promise<IGetIssuesResp | boolean> {
+async function getIssues(obj: any, args: IGetIssuesArgs, context: any, info: any): Promise<IGetIssuesResp | boolean> {
     try {
         const { repo, owner, cursor, direction = 'after' } = args
         let url = `http://localhost:3000/repository/${owner}/${repo}/issues`
@@ -31,3 +31,7 @@ export async function getIssues(obj: any, args: IGetIssuesArgs, context: any, in
 }
 
 // getIssues({}, {owner: 'facebook', repo: 'react'}, {}, {})
+
+export {
+    getIssues
+}
