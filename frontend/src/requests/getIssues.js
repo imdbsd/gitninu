@@ -11,6 +11,8 @@ async function getIssues(owner, repo, cursor, direction) {
                         getIssues(
                           owner: "${owner}"
                           repo: "${repo}"
+                          ${cursor && cursor !== '' ? 'cursor: "' + cursor + '"': ''}
+                          ${direction && direction !== '' ? 'direction: ' + direction : ''}
                         ) {
                           success
                           error {

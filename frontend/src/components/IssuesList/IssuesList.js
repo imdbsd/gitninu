@@ -10,17 +10,26 @@ class IssuesList extends Component {
         issues: [],
         totalIssues: 0,
         pageInfo: {},
-        history: []
+        page: 0
     }
-    async componentDidMount() {
+    componentDidMount() {
+        this.loadIssues()
+    }
+    loadIssues = async (cursor, direction) => {
         console.log('load issue')
         try {
-            const response = await getIssues(this.props.owner, this.props.repo)
+            const response = await getIssues(this.props.owner, this.props.repo, cursor, direction)
             if(response.success === true) {
+                let page = this.state.page
+                if(direction) {
+                    if(direction === 'after') page++
+                    else if(direction === 'before') page--
+                }
                 this.setState({
                     issues: response.issues.nodes,
                     pageInfo: response.issues.pageInfo,
-                    totalIssues: response.issues.totalCount
+                    totalIssues: response.issues.totalCount,
+                    page
                 })
             }
         }
@@ -53,7 +62,8 @@ class IssuesList extends Component {
                     <Pagination 
                         pageInfo={this.state.pageInfo}
                         totalElement={this.state.totalIssues}
-                        page={this.state.history.length + 1}
+                        page={this.state.page + 1}
+                        doPaginate={this.loadIssues}
                     />
                 )}
             </section>
