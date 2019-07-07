@@ -21,6 +21,9 @@ export default class SearchPage extends Component {
                     isOpen={this.state.openForm}
                     handleOpenSearchForm={this.handleOpenSearchForm}
                 />
+                <div className="column">
+                ¯\_(ツ)_/¯
+                </div>
             </Fragment>
         )
     }

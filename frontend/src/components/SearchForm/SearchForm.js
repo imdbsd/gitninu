@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react'
+import { getRepository } from '../../requests'
 
 export default class SearchForm extends Component {
     state = {
-        name: '',
-        repo: ''
+        name: 'facebook',
+        repo: 'react'
     }
     onChange = (e) => {
         e.preventDefault()
@@ -11,6 +12,10 @@ export default class SearchForm extends Component {
         this.setState({
             [name]: value
         })
+    }
+    onSubmit = e => {
+        e.preventDefault()
+        getRepository(this.state.name, this.state.repo)
     }
     render() {
         return (
@@ -25,7 +30,10 @@ export default class SearchForm extends Component {
                     }}
                         onClick={() => this.props.handleOpenSearchForm(false)}></div>
                 )}
-                <form className={`form-search ${!this.props.isOpen ? 'form-search--hide' : ''}`}>
+                <form 
+                    className={`form-search ${!this.props.isOpen ? 'form-search--hide' : ''}`}
+                    onSubmit={this.onSubmit}
+                >
                     <div className="field">
                         <div className="control">
                             <input 

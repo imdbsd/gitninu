@@ -2,6 +2,9 @@ async function getRepository(owner, repo) {
     try {
         const request = await fetch('http://localhost:4000/graphql', {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
             body: JSON.stringify({
                 query: `
                     query {
@@ -39,6 +42,6 @@ async function getRepository(owner, repo) {
     }
 }
 
-getRepository('facebook', 'react')
+// getRepository('facebook', 'react')
 
-// export default getRepository
+export default getRepository
