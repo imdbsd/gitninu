@@ -54,3 +54,20 @@
 .landing__emot {
   font-size: 24px;
 }
+
+.repo-info {
+  padding: 20px 0;
+  text-align: center;
+}
+
+.repo-info__avatar {
+  max-width: 150px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 200px;
+}
+
+.repo-info__name {
+  font-weight: bold;
+  font-size: 24px;
+}
