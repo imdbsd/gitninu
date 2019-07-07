@@ -5,3 +5,7 @@ backend/dist
 api/.env
 api/node_modules
 api/dist
+
+frontend/.env
+frontend/node_modules
+frontend/build
