@@ -18,6 +18,7 @@
   border-top-right-radius: 5px;
   box-shadow: -2px -4px 15px 6px #cecece;
   border-color: #cecece;
+  background-color: #fff;
   transition: .5s ease;
   z-index: 9;
   text-align: center;
@@ -105,4 +106,19 @@
   height: 100%;
   display: flex;
   align-items: center;
+}
+
+.pagination__page-status {
+  display: block;
+  width: 100%;
+  margin: 10px auto;
+}
+
+.pagination__nav-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.pagination__nav-wrapper button {
+  flex: 1;
 }

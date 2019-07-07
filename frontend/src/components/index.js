@@ -7,6 +7,7 @@ import { LandingComponent } from './LandingComponent'
 import { RepositoryInfo } from './RepositoryInfo'
 import { IssuesList } from './IssuesList'
 import { IssueCard } from './IssueCard'
+import { Pagination } from './Pagination'
 
 export {
     App,
@@ -17,5 +18,6 @@ export {
     SearchRepoResult,
     LandingComponent,
     IssuesList,
-    IssueCard
+    IssueCard,
+    Pagination
 }

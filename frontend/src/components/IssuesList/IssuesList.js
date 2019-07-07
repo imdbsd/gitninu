@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
-import { IssueCard } from '../IssueCard'
+import { 
+    IssueCard,
+    Pagination
+} from '../../components'
 import { getIssues } from '../../requests'
 
 class IssuesList extends Component {
     state = {
         issues: [],
+        totalIssues: 0,
         pageInfo: {}
     }
     async componentDidMount() {
@@ -14,7 +18,8 @@ class IssuesList extends Component {
             if(response.success === true) {
                 this.setState({
                     issues: response.issues.nodes,
-                    pageInfo: response.issues.pageInfo
+                    pageInfo: response.issues.pageInfo,
+                    totalIssues: response.issues.totalCount
                 })
             }
         }
@@ -43,6 +48,12 @@ class IssuesList extends Component {
                         />
                     ))}
                 </div>
+                {Object.keys(this.state.pageInfo).length > 0 && (
+                    <Pagination 
+                        pageInfo={this.state.pageInfo}
+                        totalElement={this.state.totalIssues}
+                    />
+                )}
             </section>
         )
     }
