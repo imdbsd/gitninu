@@ -31,7 +31,8 @@ export default class SearchForm extends Component {
                         top: 0,
                         left: 0,
                         bottom: 0,
-                        right: 0
+                        right: 0,
+                        zIndex: 8
                     }}
                         onClick={() => this.props.handleOpenSearchForm(false)}></div>
                 )}
@@ -39,6 +40,7 @@ export default class SearchForm extends Component {
                     className={`form-search ${!this.props.isOpen ? 'form-search--hide' : ''}`}
                     onSubmit={this.onSubmit}
                 >
+                    <p style={{textAlign: 'center', marginBottom: '10px'}}>Search the repo from the github superstar</p>
                     <div className="field">
                         <div className="control">
                             <input 

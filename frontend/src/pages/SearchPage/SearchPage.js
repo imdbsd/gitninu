@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from 'react'
-import { SearchForm, ButtonSearchForm } from '../../components'
+import { SearchForm, ButtonSearchForm, LandingComponent } from '../../components'
 
 export default class SearchPage extends Component {
     state = {
         openForm: false,
-        searchResult: []
+        searchResult: [], 
+        errorFind: null
     }
 
     handleOpenSearchForm = (state) => {
@@ -22,10 +23,9 @@ export default class SearchPage extends Component {
                     isOpen={this.state.openForm}
                     handleOpenSearchForm={this.handleOpenSearchForm}
                 />
-                <div className="column">
-                <p>¯\_(ツ)_/¯</p>
-                <p>Guess what? <br/>You can use that button on the button to search.</p>
-                </div>
+                {this.state.searchResult.length === 0 && (
+                    <LandingComponent />
+                )}
             </Fragment>
         )
     }
