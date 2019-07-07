@@ -1,17 +1,18 @@
 import React from 'react'
 
 function IssueCard(props) {
+    const { issue } = props
     return (
         <article className="issue-card">
             <div className="issue-card__title">
-                #1 lorem ipsum
+                #{issue.number} {issue.title.substring(0, 15) + '...'}
             </div>
             <div className="issue-card__info">
-                created by: asdqwe | 22-03-2019
+                created by: {issue.author.login} | {issue.createdAt.split('T')[0]}
             </div>
             <div className="issue-card__state">
-                <span className="tag is-primary">
-                Closed
+                <span className={`tag ${issue.state === 'OPEN' ? 'is-danger' : 'is-primary'}`}>
+                    {issue.state}
                 </span>
             </div>
         </article>
