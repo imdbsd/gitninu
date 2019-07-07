@@ -56,3 +56,5 @@ async function getIssue(owner, repo, number, cursor, direction) {
         return false
     }
 }
+
+export default getIssue
