@@ -12,4 +12,11 @@ type Query {
         cursor: String
         direction: CursorDirection
     ): IssuesResponse
+    getIssue (
+        owner: String!
+        repo: String!
+        number: Int!
+        commentCursor: String
+        commentCursorDirection: CursorDirection
+    )
 }
