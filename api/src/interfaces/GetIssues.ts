@@ -3,6 +3,7 @@ import { IGetRepositoryArgs } from './GetRepository'
 export interface IGetIssuesArgs extends IGetRepositoryArgs {
     cursor?: string
     direction?: string
+    state: string
 }
 
 export interface IGetIssuesResp {

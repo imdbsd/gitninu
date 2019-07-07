@@ -27,6 +27,7 @@ type IssuesNode {
     id: ID
     title: String
     number: Int
+    state: State
     createdAt: String
     author: GithubUser
 }
@@ -93,4 +94,9 @@ type Comment {
     author: GithubUser
     body: String
     bodyHTML: String
+}
+
+enum State {
+    OPEN
+    CLOSED
 }

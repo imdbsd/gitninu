@@ -11,6 +11,7 @@ type Query {
         repo: String!
         cursor: String
         direction: CursorDirection
+        state: State
     ): IssuesResponse
     getIssue (
         owner: String!

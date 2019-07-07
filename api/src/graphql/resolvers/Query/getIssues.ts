@@ -1,5 +1,4 @@
 import axios, { AxiosResponse } from 'axios'
-import { getRepository } from './getRepository'
 import {
     IGetIssuesResp,
     IFetchIssuesResponse,
@@ -8,10 +7,13 @@ import {
 
 async function getIssues(obj: any, args: IGetIssuesArgs, context: any, info: any): Promise<IGetIssuesResp | boolean> {
     try {
-        const { repo, owner, cursor, direction = 'after' } = args
-        let url = `http://localhost:3000/repository/${owner}/${repo}/issues`
+        const { repo, owner, cursor, direction = 'after', state } = args
+        let url = `http://localhost:3000/repository/${owner}/${repo}/issues?`
         if(cursor && cursor !== '') {
-            url += `?cursor=${cursor}&direction=${direction}`
+            url += `cursor=${cursor}&direction=${direction}&`
+        }
+        if(state) {
+            url += `state=${state}&`
         }
         const response: AxiosResponse<IFetchIssuesResponse> = await axios({
             method: 'GET',
