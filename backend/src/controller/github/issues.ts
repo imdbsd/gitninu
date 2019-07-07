@@ -7,7 +7,7 @@ import {
 } from '../../interfaces'
 import { GITHUB_ACCESS_TOKEN, GITHUB_GRAPH_BASE_URL } from '../../utils/config'
 
-async function issues(owner: string, repo: string, count: number, cursor? : string, direction?: string): Promise<IIssuesSuccess | IIssuesError | null> {
+async function issues(owner: string, repo: string, count: number, state?: string ,cursor? : string, direction?: string): Promise<IIssuesSuccess | IIssuesError | null> {
     try {
         let cursorDirection = 'first'
         if(direction) {
@@ -27,6 +27,7 @@ async function issues(owner: string, repo: string, count: number, cursor? : stri
                     query {
                         repository(owner: "${owner}", name: "${repo}") {
                             issues(
+                                ${state && state !== '' ? 'filterBy: { states: '+state+' }' : ''}
                                 ${cursor && cursor !== '' ? direction + ': ' + cursor : ''}
                                 ${cursorDirection}: ${count}
                                 orderBy: {
@@ -49,9 +50,10 @@ async function issues(owner: string, repo: string, count: number, cursor? : stri
                                     title
                                     number
                                     createdAt
-                                        author {
+                                    author {
                                         login
                                     }
+                                    state
                                 }
                             }
                         }

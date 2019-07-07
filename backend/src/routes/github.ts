@@ -51,8 +51,8 @@ router.get('/repository/:owner/:repo', async (req, res) => {
 router.get('/repository/:owner/:repo/issues', async (req, res) => {
     try {
         const { owner, repo } = req.params
-        const { cursor, direction = 'after' } = req.query
-        const repoIssuesRequest = await github.issues(owner, repo, 10, cursor, direction)
+        const { cursor, direction = 'after', state } = req.query
+        const repoIssuesRequest = await github.issues(owner, repo, 10, state, cursor, direction)
         if(repoIssuesRequest) {
             if(isInstanceOfIIssuesSuccess(repoIssuesRequest)) {
                 res.status(200).json({

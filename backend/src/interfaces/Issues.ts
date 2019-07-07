@@ -19,8 +19,9 @@ export interface IIssuesSuccess {
                 title: string,
                 createdAt: string,
                 author: {
-                login: string
-                }
+                    login: string
+                },
+                state: string
             }
         ]
     } | null
