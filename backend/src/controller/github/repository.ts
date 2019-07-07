@@ -23,6 +23,7 @@ async function repository(owner: string, repo: string): Promise<IRepositorySucce
                             name
                             owner {
                                 login
+                                avatarUrl
                             }
                             createdAt
                             totalIssues: issues {

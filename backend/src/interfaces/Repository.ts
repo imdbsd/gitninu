@@ -3,7 +3,8 @@ export interface IRepositorySuccess {
         id: string,
         name: string,
         owner: {
-          login: string
+          login: string,
+          avatarUrl: string
         },
         createdAt: string,
         totalIssues: {
