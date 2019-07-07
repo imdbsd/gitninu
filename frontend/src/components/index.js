@@ -8,6 +8,7 @@ import { RepositoryInfo } from './RepositoryInfo'
 import { IssuesList } from './IssuesList'
 import { IssueCard } from './IssueCard'
 import { Pagination } from './Pagination'
+import { IssueDisplay } from './IssueDisplay'
 
 export {
     App,
@@ -19,5 +20,6 @@ export {
     LandingComponent,
     IssuesList,
     IssueCard,
-    Pagination
+    Pagination,
+    IssueDisplay
 }
