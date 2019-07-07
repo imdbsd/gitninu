@@ -7,3 +7,21 @@
 .navbar__title {
   font-weight: bold;
 }
+
+.form-search {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 25px 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  box-shadow: -2px -4px 15px 6px #cecece;
+  border-color: #cecece;
+  transition: .5s ease;
+}
+
+.form-search--hide {
+  bottom: -100%;
+  transition: .5s ease;
+}
