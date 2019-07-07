@@ -18,5 +18,5 @@ type Query {
         number: Int!
         commentCursor: String
         commentCursorDirection: CursorDirection
-    )
+    ): IssueResponse
 }

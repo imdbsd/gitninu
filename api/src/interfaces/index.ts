@@ -10,11 +10,16 @@ import {
     IGetIssuesResp
 } from './GetIssues'
 
+import {
+    IGetIssueArgs
+} from './GetIssue'
+
 export {
     IGetRepositoryArgs,
     IGetRepositoryResp,
     IFetchIssuesResponse,
     IFetchRepositoryResponse,
     IGetIssuesArgs,
-    IGetIssuesResp
+    IGetIssuesResp,
+    IGetIssueArgs
 }
