@@ -10,14 +10,7 @@ import {
 export default class SearchPage extends Component {
     state = {
         openForm: false,
-        searchResult: {
-            id: "MDEwOlJlcG9zaXRvcnkxMDI3MDI1MA==",
-            name: "react",
-            openIssues: {totalCount: 572},
-            owner: {login: "facebook", avatarUrl: "https://avatars3.githubusercontent.com/u/69631?v=4"},
-            totalIssues: {totalCount: 7646},
-            closedIssues: {totalCount: 7074}
-        }, 
+        searchResult: {}, 
         errorFind: null
     }
 
