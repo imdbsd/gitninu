@@ -25,11 +25,11 @@ async function getIssue(obj: any, args: IGetIssueArgs, context: any, info: any):
     }
 }
 
-getIssue({}, {
-    owner: 'facebook',
-    repo: 'react',
-    number: 10
-}, {}, {})
+// getIssue({}, {
+//     owner: 'facebook',
+//     repo: 'react',
+//     number: 10
+// }, {}, {})
 
 export {
     getIssue
