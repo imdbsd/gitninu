@@ -1,10 +1,19 @@
 import React, { Component, Fragment } from 'react'
-import { SearchForm, ButtonSearchForm, LandingComponent } from '../../components'
+import { SearchForm, ButtonSearchForm, LandingComponent, RepositoryInfo } from '../../components'
 
 export default class SearchPage extends Component {
     state = {
         openForm: false,
-        searchResult: {}, 
+        searchResult: {
+            id: "MDEwOlJlcG9zaXRvcnkxMDI3MDI1MA==",
+            name: "react",
+            owner: {
+                login: "facebook"
+            },
+            totalIssues: {
+                totalCount: 7646
+            }
+        }, 
         errorFind: null
     }
 
@@ -14,6 +23,7 @@ export default class SearchPage extends Component {
 
     handleSearchResultChange = (result) => {
         if(Object.keys(result).length > 0) {
+            console.log({result})
             this.setState({
                 searchResult: result, errorFind: null, openForm: false
             })
@@ -42,7 +52,7 @@ export default class SearchPage extends Component {
                     <LandingComponent />
                 )}
                 {Object.keys(this.state.searchResult).length > 0 && (
-                    <div></div>
+                    <RepositoryInfo info={this.state.searchResult}/>
                 )}
             </Fragment>
         )
