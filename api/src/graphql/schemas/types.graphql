@@ -51,6 +51,7 @@ type CounterOnly {
 
 type GithubUser {
     login: String
+    avatarUrl: String
 }
 
 type GraphError {
