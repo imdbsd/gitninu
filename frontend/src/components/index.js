@@ -10,6 +10,7 @@ import { IssueCard } from './IssueCard'
 import { Pagination } from './Pagination'
 import { IssueDisplay } from './IssueDisplay'
 import { CommentList } from './CommentList'
+import { CommentCard } from './CommentCard'
 
 export {
     App,
@@ -23,5 +24,6 @@ export {
     IssueCard,
     Pagination,
     IssueDisplay,
-    CommentList
+    CommentList,
+    CommentCard
 }
